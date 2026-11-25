@@ -18,7 +18,6 @@ module regfile(
     if (we && rd != 0) begin
       // Write data to the register file if write enable is high and rd is not zero
       regs[rd] <= wd;
-      $display("Regfile write: regs[%0d] <= %0d at time %0t", rd, wd, $time);
     end
   end
 endmodule

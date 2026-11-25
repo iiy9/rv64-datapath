@@ -32,9 +32,9 @@ module alu_control_unit(
           3'b111: alu_control = 4'b0000; // ANDI
           3'b001: alu_control = 4'b1111; // SLLI
           3'b101: begin
-            if (funct7 == 7'b0000000)
+            if (funct7[6:1] == 6'b000000)      // RV64: funct7[0] is shamt[5]
               alu_control = 4'b1110; // SRLI
-            else if (funct7 == 7'b0100000)
+            else if (funct7[6:1] == 6'b010000)
               alu_control = 4'b1000; // SRAI
             else
               alu_control = 4'b0000;
